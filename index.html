@@ -4,68 +4,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>James Price | jkpdevlabs</title>
+    <meta name="color-scheme" content="only light">
+    <title>jkpdevlabs.com // Desert Tech Portfolio</title>
+    <!-- Official Tech Logo Library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
+        :root {
+            --bg: #fffdfc;
+            --text: #2f363d;
+            --accent: #bf5b45;
+            /* Burnt Terracotta */
+            --sage: #4a5d4e;
+            /* Sage Green */
+            --mtn-back: #c9b1a5;
+            --mtn-front: #a68d80;
+            --title-color: #a68d80;
+            --hero-grad: linear-gradient(180deg, #d1e1e0 0%, #f2d1c9 100%);
+            --card-bg: white;
+            --border: #e0d0ca;
+            --status-text: #00ff41;
+            --cf-logo: #F38020;
+        }
+
+        [data-theme='dark'] {
+            --bg: #1a1c2c;
+            --text: #e2d7c5;
+            --accent: #d46a4f;
+            --sage: #8ea68f;
+            --mtn-back: #2d304e;
+            --mtn-front: #121420;
+            --title-color: #9499c3;
+            --hero-grad: linear-gradient(180deg, #1a1c2c 0%, #4a2f48 100%);
+            --card-bg: #24273a;
+            --border: #3b3f5c;
+            --status-text: #f1d3a1;
+            --cf-logo: #f3ad70;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Space Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+            transition: background 0.5s ease;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: var(--hero-grad);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .status-bar {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 30;
+            background: rgba(15, 17, 26, 0.8);
+            color: var(--status-text);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            border-left: 4px solid var(--accent);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mountain-back {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 45vh;
+            background-color: var(--mtn-back);
+            opacity: 0.7;
+            z-index: 1;
+            clip-path: polygon(0% 100%, 15% 45%, 35% 75%, 55% 25%, 75% 65%, 90% 35%, 100% 100%);
+        }
+
+        .mountain-front {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30vh;
+            background-color: var(--mtn-front);
+            z-index: 2;
+            clip-path: polygon(0% 100%, 10% 65%, 25% 45%, 45% 85%, 65% 35%, 85% 75%, 100% 100%);
+        }
+
+        .initials-container {
+            position: relative;
+            z-index: 20;
+            text-align: center;
+            font-size: clamp(1.8rem, 7vw, 4rem);
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        #dynamic-text {
+            color: var(--sage);
+        }
+
+        .cursor {
+            animation: blink 0.9s steps(2, start) infinite;
+            color: var(--text);
+        }
+
+        @keyframes blink {
+            to {
+                visibility: hidden;
+            }
+        }
+
+        /* REFINED SMALL TECH BADGES */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .skill-badge {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .skill-badge i {
+            font-size: 1.1rem;
+        }
+
+        /* Compact Icon */
+        .skill-badge span {
+            font-size: 0.65rem;
+            font-weight: bold;
+        }
+
+        /* Compact Text */
+
+        /* CONTENT CARDS */
+        .content-section {
+            padding: 80px 20px;
+            position: relative;
+            z-index: 25;
+            background: var(--bg);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            border-bottom: 3px solid var(--accent);
+            display: inline-block;
+            margin-bottom: 40px;
+            color: var(--title-color);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .card {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 32px;
-            max-width: 500px;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        h1 {
-            color: #58a6ff;
-            font-size: 24px;
-            margin-bottom: 8px;
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(191, 91, 69, 0.2);
+            border-color: var(--accent);
         }
 
-        p {
-            color: #8b949e;
-            line-height: 1.5;
-            font-size: 16px;
+        .card h3 {
+            margin-top: 0;
+            color: var(--accent);
         }
 
-        .status {
-            color: #3fb950;
+        .card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: auto;
+            opacity: 0.85;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: var(--border);
+            color: var(--text);
+            font-size: 0.7rem;
+            padding: 4px 12px;
+            margin: 10px 8px 0 0;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        /* HARDWARE DETAILS */
+        .card-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, margin 0.3s ease;
+            font-size: 0.75rem;
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .card.expanded .card-details {
+            max-height: 500px;
+            margin: 15px 0;
+            padding: 15px;
+        }
+
+        .spec-line {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed var(--border);
+            padding: 6px 0;
+        }
+
+        .spec-line span:first-child {
+            color: var(--sage);
             font-weight: bold;
-            margin-top: 20px;
-            font-size: 14px;
+        }
+
+        .expand-btn {
+            background: none;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.65rem;
+            margin-top: 15px;
+            padding: 8px;
+            width: 100%;
+            border-radius: 4px;
+        }
+
+        /* INFRASTRUCTURE MONITOR */
+        .node-monitor {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .node-bubble {
+            border: 1px solid var(--border);
+            padding: 12px 18px;
+            border-radius: 10px;
+            background: var(--card-bg);
+        }
+
+        .health-bar {
+            height: 3px;
+            background: var(--accent);
+            width: 100%;
+            margin-top: 8px;
+            opacity: 0.6;
+        }
+
+        /* FOOTER BRANDING */
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+        }
+
+        .cf-branding {
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 8px;
+            color: var(--accent);
+            font-weight: bold;
+            text-decoration: none;
         }
 
-        .dot {
-            height: 8px;
-            width: 8px;
-            background-color: #3fb950;
-            border-radius: 50%;
-            display: inline-block;
+        .cf-logo-svg {
+            width: 24px;
+            height: auto;
+            fill: var(--cf-logo);
+        }
+
+        .toggle-btn {
+            background: var(--accent);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 0.65rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-family: inherit;
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
-    <div class="card">
-        <h1>jkpdevlabs - this will eventually showcase my coding skills.</h1>
-        <p>Architectural Phase: Portfolio Website</p>
-        <div class="status"><span class="dot"></span> System Online: Anastasia (NVMe Core)</div>
+
+    <div class="hero">
+        <div class="status-bar">
+            <span>NETWORK: ACTIVE // <span id="uptime">00:00</span></span>
+            <button class="toggle-btn" onclick="toggleTheme()">TOGGLE_SKY</button>
+        </div>
+        <div class="mountain-back"></div>
+        <div class="mountain-front"></div>
+        <div class="initials-container">
+            <span>{jkp</span><span id="dynamic-text">.</span><span>}</span><span class="cursor">|</span>
+        </div>
     </div>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>TECH_STACK</h2>
+            <!-- Updated Grid with Corrected Logos -->
+            <div class="skills-grid">
+                <div class="skill-badge"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+                <div class="skill-badge"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+                <div class="skill-badge"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                <div class="skill-badge"><i class="devicon-debian-plain colored"></i><span>Debian</span></div>
+                <div class="skill-badge"><i class="devicon-proxmox-plain colored"></i><span>Proxmox</span></div>
+                <div class="skill-badge"><i class="devicon-nginx-original colored"></i><span>Nginx</span></div>
+                <div class="skill-badge"><i class="devicon-cloudflare-plain colored"></i><span>Cloudflare</span></div>
+                <div class="skill-badge"><i class="devicon-linux-plain"></i><span>Linux</span></div>
+            </div>
+
+            <h2>Lab Showcase</h2>
+            <div class="project-grid">
+                <div class="card" id="card-1">
+                    <h3>HomeLab Web Cluster</h3>
+                    <p>High-availability Proxmox environment powered by the cluster sisters: Anastasia, Natalia, and
+                        Tatiana.</p>
+                    <div class="card-details">
+                        <div class="spec-line"><span>NODES</span> <span>Anastasia, Natalia, Tatiana</span></div>
+                        <div class="spec-line"><span>CPU</span> <span>AMD A6-8500 (Dual)</span></div>
+                        <div class="spec-line"><span>TOTAL RAM</span> <span>48GB DDR3</span></div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleCard('card-1')">VIEW_HARDWARE_SPECS</button>
+                    <div><span class="tech-tag">Proxmox</span><span class="tech-tag">Debian</span><span
+                            class="tech-tag">ZFS</span></div>
+                </div>
+                <div class="card" id="card-2">
+                    <h3>Backup Infrastructure</h3>
+                    <p>Dedicated Proxmox Backup Server (PBS) named Petrovia on an HP ProDesk 600 G1 with dual HDD
+                        mirroring.</p>
+                    <div class="card-details">
+                        <div class="spec-line"><span>NAME</span> <span>Petrovia</span></div>
+                        <div class="spec-line"><span>HOST</span> <span>HP ProDesk 600 G1</span></div>
+                        <div class="spec-line"><span>STORAGE</span> <span>2x 500GB HDD Mirror</span></div>
+                    </div>
+                    <button class="expand-btn" onclick="toggleCard('card-2')">VIEW_HARDWARE_SPECS</button>
+                    <div><span class="tech-tag">PBS</span><span class="tech-tag">Petrovia</span><span
+                            class="tech-tag">Intel i3</span></div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 60px;">INFRASTRUCTURE_NODES</h2>
+            <div class="node-monitor">
+                <div class="node-bubble"><small>ANASTASIA</small>
+                    <div class="health-bar"></div>
+                </div>
+                <div class="node-bubble"><small>NATALIA</small>
+                    <div class="health-bar"></div>
+                </div>
+                <div class="node-bubble"><small>TATIANA</small>
+                    <div class="health-bar"></div>
+                </div>
+                <div class="node-bubble"><small>PETROVIA</small>
+                    <div class="health-bar" style="background: var(--sage);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <a href="https://jkpdevlabs.com" class="cf-branding">
+            <svg class="cf-logo-svg" viewBox="0 0 512 512">
+                <path
+                    d="M410.7 269.1c-1.1-34.5-26.6-63.5-60.1-68.4-1.3-.2-2.5-.3-3.8-.3-6.5 0-12.7 1.2-18.4 3.3-15.6-53.7-64.8-93.1-123.1-93.1-43 0-81.2 21.4-104.3 54.3-1.6-.1-3.2-.2-4.8-.2-44.1 0-80.3 35.1-81.8 78.8C6.1 247.9 0 257.8 0 268.8c0 23.3 18.9 42.2 42.2 42.2h368.5c23.3 0 42.2-18.9 42.2-42.2.1-23.3-18.8-42.2-42.2-42.2z" />
+            </svg>
+            jkpdevlabs.com
+        </a>
+        <p>&copy; 2024 Recycled hardware, original code.</p>
+        <p id="last-update"></p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('desert-theme', newTheme);
+        }
+        function toggleCard(id) {
+            const card = document.getElementById(id);
+            const btn = card.querySelector('.expand-btn');
+            card.classList.toggle('expanded');
+            btn.textContent = card.classList.contains('expanded') ? 'CLOSE_SPECS' : 'VIEW_HARDWARE_SPECS';
+        }
+        const textElement = document.getElementById('dynamic-text');
+        const roles = [".developer", ".sys-admin", ".full-stack"];
+        let rIdx = 0, cIdx = 0, isDeleting = false;
+        function type() {
+            const role = roles[rIdx];
+            textElement.textContent = isDeleting ? role.substring(0, cIdx - 1) : role.substring(0, cIdx + 1);
+            cIdx = isDeleting ? cIdx - 1 : cIdx + 1;
+            if (!isDeleting && cIdx === role.length) { isDeleting = true; setTimeout(type, 1500); }
+            else if (isDeleting && cIdx === 0) { isDeleting = false; rIdx = (rIdx + 1) % roles.length; setTimeout(type, 500); }
+            else { setTimeout(type, isDeleting ? 70 : 150); }
+        }
+        let sec = 0;
+        setInterval(() => {
+            sec++;
+            const m = Math.floor(sec / 60).toString().padStart(2, '0');
+            const s = (sec % 60).toString().padStart(2, '0');
+            document.getElementById('uptime').textContent = `${m}:${s}`;
+        }, 1000);
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
+            document.getElementById('last-update').textContent = "LAST DEPLOY: " + new Date().toLocaleDateString();
+            const savedTheme = localStorage.getItem('desert-theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        });
+    </script>
 </body>
 
 </html>
