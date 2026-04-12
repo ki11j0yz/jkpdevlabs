@@ -454,9 +454,9 @@
             const role = roles[rIdx];
             textElement.textContent = isDeleting ? role.substring(0, cIdx - 1) : role.substring(0, cIdx + 1);
             cIdx = isDeleting ? cIdx - 1 : cIdx + 1;
-            if (!isDeleting && cIdx === role.length) { isDeleting = true; setTimeout(type, 1500); }
+            if (!isDeleting && cIdx === role.length) { isDeleting = true; setTimeout(type, 1000); }
             else if (isDeleting && cIdx === 0) { isDeleting = false; rIdx = (rIdx + 1) % roles.length; setTimeout(type, 500); }
-            else { setTimeout(type, isDeleting ? 70 : 150); }
+            else { setTimeout(type, isDeleting ? 40 : 80); }
         }
         let sec = 0;
         setInterval(() => {
