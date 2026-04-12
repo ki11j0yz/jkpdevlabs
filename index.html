@@ -456,7 +456,7 @@
             cIdx = isDeleting ? cIdx - 1 : cIdx + 1;
             if (!isDeleting && cIdx === role.length) { isDeleting = true; setTimeout(type, 1000); }
             else if (isDeleting && cIdx === 0) { isDeleting = false; rIdx = (rIdx + 1) % roles.length; setTimeout(type, 500); }
-            else { setTimeout(type, isDeleting ? 40 : 80); }
+            else { setTimeout(type, isDeleting ? 20 : 80); }
         }
         let sec = 0;
         setInterval(() => {
