@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{jkpdevlabs} // Retro-Groove Systems Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Gruvbox scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1d2021;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3c3836;
+            border-radius: 3px;
+        }
+
+        .font-mono-code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
+</head>
+<!-- Gruvbox Dark Hard Background (#1d2021) and Soft Cream Text (#ebdbb2) -->
+
+<body
+    class="bg-[#1d2021] text-[#ebdbb2] min-h-screen flex flex-col justify-between font-sans selection:bg-[#fabd2f] selection:text-[#1d2021]">
+
+    <!-- Navigation Header -->
+    <header class="border-b border-[#3c3836] bg-[#282828]/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <!-- Scaled Up Circular Container (48px) with macOS Spring Transition -->
+                <div id="nav-avatar"
+                    class="w-12 h-12 rounded-full overflow-hidden border border-[#504945] bg-[#3c3836] shadow-md flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] scale-0 opacity-0 origin-center">
+                    <!-- Smooth, non-stretched scaling -->
+                    <img src="images/avatar.png" alt="jkpdevlabs avatar"
+                        class="w-[115%] max-w-none h-auto transform translate-x-[4%]">
+                </div>
+                <!-- Scaled Up Brand Name (20px) -->
+                <span class="text-[#b8bb26] font-bold font-mono-code text-xl">{jkpdevlabs}</span>
+            </div>
+            <nav class="flex items-center space-x-6 text-sm font-medium text-[#a89984]">
+                <a href="#about" class="hover:text-[#fabd2f] transition-colors">About</a>
+                <a href="#homelab" class="hover:text-[#fabd2f] transition-colors">Homelab</a>
+                <a href="#networking" class="hover:text-[#fabd2f] transition-colors">Networking</a>
+                <a href="#webdev" class="hover:text-[#fabd2f] transition-colors">Development</a>
+                <a href="#contact"
+                    class="px-3 py-1.5 rounded bg-[#3c3836] text-[#ebdbb2] hover:bg-[#fabd2f] hover:text-[#1d2021] border border-[#504945] transition-all font-mono-code text-xs">ssh
+                    contact@jkp.dev</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl w-full mx-auto px-4 py-12 flex-grow space-y-20">
+
+        <!-- Hero Section -->
+        <section id="about" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center pt-4">
+            <div class="md:col-span-2 space-y-6">
+                <!-- Large Hero Avatar with macOS Spring Transition (Scaled Up) -->
+                <div id="hero-avatar"
+                    class="w-40 h-40 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-[#504945] bg-[#3c3836] shadow-xl flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] origin-center">
+                    <img src="images/avatar.png" alt="jkpdevlabs avatar"
+                        class="w-[110%] max-w-none h-auto transform translate-x-[3%]">
+                </div>
+                <!-- Crisp light text (#fbf1c7) -->
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-[#fbf1c7]">
+                    Analytical, Adaptive, Innovative.
+                </h1>
+
+                <!-- Updated container with disciplines and formatted lists -->
+                <div class="max-w-2xl text-[#bdae93] text-lg leading-relaxed space-y-6">
+                    <p>
+                        I design and build responsive websites from the ground up, salvage broken systems plagued by
+                        bugs or integration conflicts, and engineer custom workflow stacks tailored to your business
+                        operations. Platform-agnostic by nature, I approach unfamiliar tech and shifting environments
+                        with a focus on execution—willing to learn, master, and deploy whatever tool is necessary to
+                        solve the problem. I operate with a rugged adaptability that prioritizes results over rigid
+                        checklists.
+                    </p>
+                    <p class="font-semibold text-[#fbf1c7]">
+                        My work is defined by three core disciplines:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-4 text-base">
+                        <li>
+                            <strong class="text-[#fbf1c7]">Analytical/Critical Thinking:</strong> The capacity to
+                            deconstruct a complex visual concept or business goal into clear, functional programming
+                            steps.
+                        </li>
+                        <li>
+                            <strong class="text-[#fbf1c7]">Creative Troubleshooting:</strong> Finding innovative
+                            workarounds to optimize website speeds, fix critical bugs, or bypass sudden third-party
+                            limitations.
+                        </li>
+                        <li>
+                            <strong class="text-[#fbf1c7]">Adaptability:</strong> A willingness to quickly pivot when
+                            tech stacks evolve or when project requirements shift mid-development.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-wrap gap-3 pt-2">
+                    <a href="#homelab"
+                        class="bg-[#b8bb26] hover:bg-[#98971a] text-[#1d2021] font-bold px-5 py-2.5 rounded text-sm transition-all">
+                        Browse the Lab
+                    </a>
+                    <a href="https://github.com/ki11j0yz" target="_blank"
+                        class="bg-[#282828] hover:bg-[#32302f] border border-[#3c3836] text-[#ebdbb2] px-5 py-2.5 rounded text-sm transition-all flex items-center space-x-2">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Gruvbox Console Component -->
+            <div
+                class="bg-[#282828] border border-[#3c3836] rounded-lg p-5 shadow-2xl font-mono-code text-xs text-[#bdae93] space-y-4">
+                <div class="flex items-center justify-between border-b border-[#3c3836] pb-3">
+                    <div class="flex space-x-1.5">
+                        <span class="w-3 h-3 rounded-full bg-[#fb4934]"></span>
+                        <span class="w-3 h-3 rounded-full bg-[#fabd2f]"></span>
+                        <span class="w-3 h-3 rounded-full bg-[#b8bb26]"></span>
+                    </div>
+                    <span class="text-[#a89984]">gruvbox-core-01</span>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-[#a89984]"># systemctl status jkp-engine</p>
+                    <p class="text-[#fabd2f]">● jkp-engine.service - Gruvbox Console</p>
+                    <p class="pl-4">State: <span class="text-[#b8bb26]">healthy (up)</span></p>
+                    <p class="pl-4">Contrast: Medium-Hard</p>
+                    <p class="pl-4">Active Modules: 4 active LXCs</p>
+                    <div class="border-t border-[#3c3836] my-2 pt-2 text-[11px] space-y-1">
+                        <div class="flex justify-between">
+                            <span>Main Host</span>
+                            <span class="text-[#fbf1c7]">Debian Bookworm (Bare Metal)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Storage</span>
+                            <span class="text-[#fbf1c7]">ZFS Pool (lz4 compression)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Primary VLAN</span>
+                            <span class="text-[#fbf1c7]">VLAN 10 (HomeLab Main)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <hr class="border-[#3c3836]">
+
+        <!-- Core Pillars Section -->
+        <section class="space-y-12">
+            <div class="text-center max-w-xl mx-auto space-y-3">
+                <h2 class="text-2xl md:text-3xl font-bold text-[#fbf1c7] tracking-tight">Ecosystem Architecture</h2>
+                <p class="text-[#bdae93] text-sm">
+                    Pragmatic configurations designed to run efficiently, avoiding modern framework bloating in favor of
+                    rock-solid uptime.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Pillar 1: Homelab -->
+                <div id="homelab"
+                    class="bg-[#282828]/50 border border-[#3c3836] rounded-xl p-6 hover:border-[#504945] transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div
+                            class="p-3 bg-[#b8bb26]/10 text-[#b8bb26] rounded-lg w-fit group-hover:bg-[#b8bb26] group-hover:text-[#1d2021] transition-all">
+                            <i data-lucide="server" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-[#fbf1c7]">The Homelab</h3>
+                        <p class="text-[#bdae93] text-sm leading-relaxed">
+                            My personal proving ground. Powered by reliable hypervisors hosting internal applications
+                            and backup targets, managed entirely locally.
+                        </p>
+                        <ul class="text-xs text-[#a89984] space-y-1.5 font-mono-code">
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1 h-1 bg-[#b8bb26] rounded-full"></span>
+                                <span>OS: Debian Server / Alpine</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1 h-1 bg-[#b8bb26] rounded-full"></span>
+                                <span>Hypervisor: Proxmox VE</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1 h-1 bg-[#b8bb26] rounded-full"></span>
+                                <span>DNS: Unbound Local Resolver</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Networking -->
+                <div id="networking"
+                    class="bg-[#282828]/50 border border-[#3c3836] rounded-xl p-6 hover:border-[#504945] transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div
+                            class="p-3 bg-[#fe8019]/10 text-[#fe8019] rounded-lg w-fit group-hover:bg-[#fe8019] group-hover:text-[#1d2021] transition-all">
+                            <i data-lucide="network" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-[#fbf1c7]">Networking</h3>
+                        <p class="text-[#bdae93] text-sm leading-relaxed">
+                            Strict segregation of internal assets. Custom firewalls and managed switching separate
+                            critical services from untrusted hardware.
+                        </p>
+                        <ul class="text-xs text-[#a89984] space-y-1.5 font-mono-code">
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1 h-1 bg-[#fe8019] rounded-full"></span>
+                                <span>Gateway: Bare-metal OPNsense</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1 h-1 bg-[#fe8019] rounded-full"></span>
+                                <span>Switching: VLAN 802.1Q Tagging</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1 h-1 bg-[#fe8019] rounded-full"></span>
+                                <span>Tunneling: WG Site-to-Site</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: Web Dev -->
+                <div id="webdev"
+                    class="bg-[#282828]/50 border border-[#3c3836] rounded-xl p-6 hover:border-[#504945] transition-all flex flex-col justify-between group">
+                    <div class="space-y-4">
+                        <div
+                            class="p-3 bg-[#8ec07c]/10 text-[#8ec07c] rounded-lg w-fit group-hover:bg-[#8ec07c] group-hover:text-[#1d2021] transition-all">
+                            <i data-lucide="code-2" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-[#fbf1c7]">Full Stack Dev</h3>
+                        <p class="text-[#bdae93] text-sm leading-relaxed">
+                            Writing readable code meant to last. No heavy build toolchains unless absolutely necessary;
+                            just solid web fundamentals.
+                        </p>
+                        <ul class="text-xs text-[#a89984] space-y-1.5 font-mono-code">
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1 h-1 bg-[#8ec07c] rounded-full"></span>
+                                <span>Languages: Go, TypeScript</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1 h-1 bg-[#8ec07c] rounded-full"></span>
+                                <span>Libraries: Solid, Preact, Tailwind</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <span class="w-1 h-1 bg-[#8ec07c] rounded-full"></span>
+                                <span>Database: PostgreSQL, SQLite</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects / Lab Achievements -->
+        <section class="space-y-8">
+            <div class="flex justify-between items-end border-b border-[#3c3836] pb-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-[#fbf1c7] tracking-tight">Recent Projects & Labs</h2>
+                    <p class="text-[#bdae93] text-sm mt-1">Simple command-line tools, utilities, and configuration
+                        scripts.</p>
+                </div>
+                <a href="https://github.com" target="_blank"
+                    class="text-xs font-mono-code text-[#fabd2f] hover:text-[#fe8019] flex items-center space-x-1">
+                    <span>View all code</span>
+                    <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div
+                    class="bg-[#282828]/30 border border-[#3c3836] hover:border-[#504945] p-6 rounded-lg space-y-4 transition-all">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-mono-code text-[#b8bb26]">01 / Infrastructure-as-code</span>
+                        <span
+                            class="px-2 py-0.5 rounded bg-[#3c3836] text-[10px] font-mono-code text-[#a89984] border border-[#504945]">Ansible
+                            & Jinja</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#fbf1c7]">Homelab Auto-Builds</h3>
+                    <p class="text-[#bdae93] text-sm leading-relaxed">
+                        Ansible playbooks configured to provision LXC containers and secure VM environments from
+                        scratch. Automatically maps NFS paths, structures user access keys, and installs default utility
+                        packages.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#"
+                            class="text-xs font-semibold text-[#ebdbb2] hover:text-white flex items-center space-x-1">
+                            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                            <span>View Source</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="bg-[#282828]/30 border border-[#3c3836] hover:border-[#504945] p-6 rounded-lg space-y-4 transition-all">
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-mono-code text-[#8ec07c]">02 / System Administration</span>
+                        <span
+                            class="px-2 py-0.5 rounded bg-[#3c3836] text-[10px] font-mono-code text-[#a89984] border border-[#504945]">Go
+                            & Systemd</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-[#fbf1c7]">vlan-healthcheck-cli</h3>
+                    <p class="text-[#bdae93] text-sm leading-relaxed">
+                        A lightweight compiled utility written in Go. It pings gateway paths across isolated VLAN
+                        interface configurations and logs packet diagnostics back to a centralized Prometheus listener.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#"
+                            class="text-xs font-semibold text-[#ebdbb2] hover:text-white flex items-center space-x-1">
+                            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+                            <span>View Source</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terminal Command / Get in Touch -->
+        <section id="contact" class="bg-[#282828] border border-[#3c3836] rounded-xl p-8 space-y-6">
+            <div class="space-y-2">
+                <h2 class="text-xl font-bold text-[#fbf1c7]">Establish Communication</h2>
+                <p class="text-[#bdae93] text-sm max-w-xl">
+                    Drop a message if you'd like to discuss hypervisors, standard container configurations, or clean API
+                    architectures.
+                </p>
+            </div>
+
+            <!-- Fake Interactive Shell Form -->
+            <form action="#" class="space-y-4 font-mono-code text-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label for="name" class="text-[#a89984] text-xs">jkpdevlabs@shell:~$ name</label>
+                        <input type="text" id="name" name="name" required placeholder="Your Name"
+                            class="w-full bg-[#1d2021] border border-[#3c3836] rounded px-3 py-2 text-[#ebdbb2] focus:outline-none focus:border-[#fabd2f] transition-colors">
+                    </div>
+                    <div class="space-y-1">
+                        <label for="email" class="text-[#a89984] text-xs">jkpdevlabs@shell:~$ email</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com"
+                            class="w-full bg-[#1d2021] border border-[#3c3836] rounded px-3 py-2 text-[#ebdbb2] focus:outline-none focus:border-[#fabd2f] transition-colors">
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <label for="message" class="text-[#a89984] text-xs">jkpdevlabs@shell:~$ message</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Type your message here..."
+                        class="w-full bg-[#1d2021] border border-[#3c3836] rounded px-3 py-2 text-[#ebdbb2] focus:outline-none focus:border-[#fabd2f] transition-colors resize-none"></textarea>
+                </div>
+                <button type="submit"
+                    class="bg-[#b8bb26] hover:bg-[#98971a] text-[#1d2021] font-bold px-4 py-2 rounded text-xs transition-colors flex items-center space-x-2">
+                    <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                    <span>Execute Transmission</span>
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-[#3c3836] bg-[#1d2021] py-8 text-xs font-mono-code text-[#a89984]">
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-2">
+                <span>&copy; 2026 {jkpdevlabs}. All configs local-first.</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <span>Tailwind CSS</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#504945]"></span>
+                <span>Gruvbox Dark Palette</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-[#504945]"></span>
+                <span>System Uptime Stable</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons & Bouncy Scroll Transition -->
+    <script>
+        lucide.createIcons();
+
+        // Target the two avatars
+        const navAvatar = document.getElementById('nav-avatar');
+        const heroAvatar = document.getElementById('hero-avatar');
+
+        // Listen for scroll events
+        window.addEventListener('scroll', () => {
+            // Trigger transition once the user scrolls down past 80px
+            if (window.scrollY > 80) {
+                // Shrink and fade out the large Hero avatar
+                heroAvatar.classList.add('scale-0', 'opacity-0');
+                // Bounce and fade in the small Navbar avatar
+                navAvatar.classList.remove('scale-0', 'opacity-0');
+            } else {
+                // Bring back the large Hero avatar
+                heroAvatar.classList.remove('scale-0', 'opacity-0');
+                // Shrink and hide the Navbar avatar
+                navAvatar.classList.add('scale-0', 'opacity-0');
+            }
+        });
+    </script>
+</body>
+
+</html>
