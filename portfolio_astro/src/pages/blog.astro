@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+
+// Fetch all posts and sort by date
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<BaseLayout title="Lab Chronicles // jkpdevlabs">
+    <main class="container mx-auto px-4 py-20">
+        <h1
+            class="text-3xl font-bold text-[#bf5b45] border-b-2 border-[#bf5b45] inline-block mb-10"
+        >
+            THE_LAB_CHRONICLES
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {
+                posts.map((post) => (
+                    <a href={`/blog/${post.id}/`} class="group">
+                        <div class="bg-[#161b22] border border-[#30363d] p-6 rounded-lg hover:border-[#bf5b45] transition-all duration-300">
+                            <p class="text-xs text-[#8b949e] mb-2">
+                                {post.data.pubDate.toLocaleDateString()}
+                            </p>
+                            <h2 class="text-xl font-bold text-[#58a6ff] group-hover:underline">
+                                {post.data.title}
+                            </h2>
+                            <p class="text-sm text-[#8b949e] mt-2 line-clamp-2">
+                                {post.data.description}
+                            </p>
+                            <div class="mt-4 flex gap-2">
+                                {post.data.tags.map((tag) => (
+                                    <span class="text-[10px] bg-[#30363d] px-2 py-1 rounded-full uppercase">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </main>
+</BaseLayout>

@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection, render } from "astro:content";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((post: any) => ({
+        params: { slug: post.id },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props as { post: any };
+const { Content } = await render(post);
+---
+
+<BaseLayout title={post.data.title}>
+    <main class="container mx-auto px-4 py-20 max-w-3xl">
+        <div class="mb-8">
+            {
+                post.data.heroImage && (
+                    <img
+                        src={post.data.heroImage}
+                        alt={post.data.title}
+                        class="w-full rounded-lg mb-8 object-cover max-h-64"
+                    />
+                )
+            }
+            <p class="text-xs text-[#8b949e] mb-2">
+                {post.data.pubDate.toLocaleDateString()}
+            </p>
+            <h1 class="text-3xl font-bold text-[#58a6ff] mb-4">
+                {post.data.title}
+            </h1>
+            <p class="text-sm text-[#8b949e]">{post.data.description}</p>
+            <div class="flex gap-2 mt-4">
+                {
+                    post.data.tags.map((tag: string) => (
+                        <span class="text-[10px] bg-[#30363d] px-2 py-1 rounded-full uppercase text-[#8b949e]">
+                            {tag}
+                        </span>
+                    ))
+                }
+            </div>
+            <div class="border-b border-[#30363d] mt-8"></div>
+        </div>
+        <div
+            class="prose prose-invert max-w-none text-[#8b949e] leading-relaxed"
+        >
+            <Content />
+        </div>
+        <div class="mt-16">
+            <a href="/blog" class="text-xs text-[#58a6ff] hover:underline">
+                ← Back to Lab Chronicles
+            </a>
+        </div>
+    </main>
+</BaseLayout>
