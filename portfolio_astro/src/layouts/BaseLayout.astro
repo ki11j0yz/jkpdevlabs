@@ -1,8 +1,10 @@
 ---
 // src/layouts/BaseLayout.astro
 // Frontmatter: declared variables run on the server during build-time
-const { title = "{jkpdevlabs} // Retro-Groove Systems Portfolio" } =
-    Astro.props;
+const {
+    title = "{jkpdevlabs} // Retro-Groove Systems Portfolio",
+    showAvatar = false,
+} = Astro.props;
 const brand = "{jkpdevlabs}";
 ---
 
@@ -53,7 +55,12 @@ const brand = "{jkpdevlabs}";
                     <!-- Scaled Up Circular Container (48px) with macOS Spring Transition -->
                     <div
                         id="nav-avatar"
-                        class="w-12 h-12 rounded-full overflow-hidden border border-[#504945] bg-[#3c3836] shadow-md flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] scale-0 opacity-0 origin-center"
+                        class:list={[
+                            "w-12 h-12 rounded-full overflow-hidden border border-[#504945] bg-[#3c3836] shadow-md flex items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] origin-center",
+                            showAvatar
+                                ? "scale-100 opacity-100"
+                                : "scale-0 opacity-0",
+                        ]}
                     >
                         <!-- Smooth, non-stretched scaling -->
                         <img
@@ -63,10 +70,12 @@ const brand = "{jkpdevlabs}";
                         />
                     </div>
                     <!-- Scaled Up Brand Name (20px) using Frontmatter variable -->
-                    <span
-                        class="text-[#b8bb26] font-bold font-mono-code text-xl"
-                        >{brand}</span
-                    >
+                    <a href="/">
+                        <span
+                            class="text-[#b8bb26] font-bold font-mono-code text-xl"
+                            >{brand}</span
+                        >
+                    </a>
                 </div>
                 <nav
                     class="flex items-center space-x-6 text-sm font-medium text-[#a89984]"

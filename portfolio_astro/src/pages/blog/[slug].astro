@@ -14,7 +14,7 @@ const { post } = Astro.props as { post: any };
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title}>
+<BaseLayout title={post.data.title} showAvatar>
     <main class="container mx-auto px-4 py-20 max-w-3xl">
         <div class="mb-8">
             {
