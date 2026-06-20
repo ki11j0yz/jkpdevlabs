@@ -6,7 +6,7 @@ heroImage: "/images/blog/blog_photo1.png"
 tags: ["origin", "philosophy", "security"]
 ---
 
-<h1>The Spark (in a nut[shell]): A Cinematic Awakening Becomes Homelab</h1>
+### The Spark (in a nut[shell]): A Cinematic Awakening Becomes a Homelab
 
 My obsession didn't start with a "Hello World" program. It started with a movie.
 Not a tutorial. Not a bootcamp. Not a mentor pulling me aside and pointing me toward a career. A movie about information warfare.
@@ -18,7 +18,7 @@ The problem was I didn't know what any of that was called, or where to start - b
 
 So I did what any self-respecting person does when they want to learn something the internet wasn't designed to teach them easily — I started digging. A cheap, used Lenovo laptop. A tool called aircrack-ng. A handful of online forums where people asked questions that made you feel like you'd stumbled into a back room you weren't supposed to find. I learned how to scan networks. How to read what came back. How to pop a shell and understand what I was actually looking at when I did.
 
-Then came Python. And that's when something clicked that I didn't expect.
+Then came ***Python***. And that's when something clicked that I didn't expect.
 
 I fell in love — not just with hacking, but with the act of writing code itself. The logic of it. The way a well-structured script feels like an argument that can't be refuted. Python led me to HTML, CSS, and JavaScript — not because someone told me to learn them, but because I had a theory: that understanding how the web was built would make me better at understanding how it breaks. I was right, but I got more than I bargained for.
 
@@ -29,7 +29,7 @@ The Descent: Hardware Scavenging
 Most modern web developers start in the cloud. I started in a pile of e-waste.
 There's a philosophy behind that — not poverty, not necessity, but principle. I believe if you truly want to understand how something works, you don't start at the surface. You start at the foundation. If you're building for the web, sometimes the most fundamental question isn't what you're building — it's where it lives. How do platforms like WordPress, Wix, or SquareSpace serve millions of requests a day? Not with magic. With iron. Physical machines humming in climate-controlled rooms, stacked floor to ceiling in data centers you'll never see the inside of. The vertical, as they say.
 
-I decided I wanted to see the inside.
+**I decided I wanted to see the inside.**
 
 Luckily, I was able to acquire a small fleet of HP EliteDesk units — G1s and G2s — hardware the corporate world had quietly retired and written off. It was surplus, scrap. To me they were raw material, malleable for functionality. I added an old TRENDnet 16-port fast ethernet switch, a spool of cabling, miscellaneous brackets and rails and adapters, and started assembling something that had no name yet but felt like it was becoming something real. A small rack. A private infrastructure. A machine room in miniature.
 
@@ -42,11 +42,17 @@ I went unit by unit — pulling specs, cross-referencing generations, benchmarki
 
 I knew I wanted a 3-node cluster with a back-up server. I would need storage, RAM, wires, and power cords. I would also need to utilize 4 cases as well. Once these towers were built, they’d need to be referred to as something more than their IP addresses - which is what I have them labeled as physically. They would need… codenames. Something you understand when I refer to a specific machine. I thought about all subjects that interest me, one of which is DC Comics. I like their heroes and villains better than Marvel and I like their stories more than Marvel.
 
-The Crown Jewel: Codename - Constantine
+<br>
+
+**The Crown Jewel: Codename - <span style="color:#fb4934;">Constantine</span>**
+
 The flagship of the cluster would be Constantine. 
 I took this legacy SFF machine and installed a 1.0TB Intel 670p NVMe via a PCIe adapter — a modification that had no business working as well as it did. A 2015-era computer, suddenly capable of 900-1000 MB/s disk speeds (I know, it’s not what that NVMe is capable of, but it was free hardware) - just imagine putting a Ferrari engine in a 1992 Toyota Corolla. Not competitive. Not adequate. Recycled (until I upgrade). I had three generations of storage technology to choose from when configuring the node, and I chose deliberately — the NVMe wasn't just the fastest option, it was the only option that matched the ambition of what I was building. Near-zero latency at the storage layer accelerates everything above it. A conservative estimate would put it at 5x to 10x faster than the SATA SSDs sitting in the rest of the rack.
 
-The Failover: Codename - Lobo
+<br>
+
+**The Failover: Codename - <span style="color:#fabd2f;">Lobo</span>**
+
 If Constantine is the one who runs the show, Lobo is the one who makes sure the show never stops.
 Lobo isn't the flashiest node in the cluster. No NVMe core, no PCIe modifications pulling performance out of thin air. What it has is something more valuable in a production environment — it's always there. A ZFS mirror running underneath, two 500GB drives reflecting each other in real time, absorbing the workload before you've finished reading the alert.
 
@@ -55,7 +61,10 @@ High-availability failover isn't a glamorous role. It's a disciplined one. Armed
 In the DC universe, nobody wants to fight Lobo. Not because he's the most powerful — he isn't. Because no matter what you throw at him, he comes back. Every single time, without complaint and without hesitation.
 The cluster doesn't go down because Lobo won't let it.
 
-The Lean Compute: Codename - Swamp Thing
+<br>
+
+**The Lean Compute: Codename - <span style="color:#b8bb26;">Swamp Thing</span>**
+
 Swamp Thing doesn't announce itself. It doesn't need to.
 Swamp Thing runs lean by design, not limitation. No excess, no redundant storage tiers, no performance modifications. Just a clean boot drive, maximum airflow, and an unwavering commitment to one job — holding the cluster together when the other nodes disagree about reality. In a three-node quorum, the deciding vote is everything. The wrong answer at the wrong moment and the whole system locks.
 Swamp Thing never gets that wrong.
@@ -63,7 +72,10 @@ Swamp Thing never gets that wrong.
 In the DC universe, Swamp Thing's power isn't brute force — it's being so deeply woven into the fabric of the environment that the ecosystem simply cannot function without it. Pull it out and everything collapses. Leave it in place and everything holds.
 Swamp Thing understood the assignment.
 
-The Vault: Codename - Deathstroke
+<br>
+
+**The Vault: Codename - <span style="color:#fe8019;">Deathstroke</span>**
+
 Everything gets backed up. Nothing gets lost. That's not a goal — that's a contract.
 Deathstroke runs as a dedicated Proxmox Backup Server, ZFS mirroring and deduplication running around the clock against every VM, every container, every line of code in the cluster. It doesn't host. It doesn't serve. It doesn't compute for anyone else. It protects. Every file I've written, every configuration I've built, held in the vault with a grip that doesn't loosen.
 
@@ -72,42 +84,48 @@ Neither does the backup server.
 
 Here is the breakdown of the assets currently active in the field: 
 
-🟢 ASSET: Constantine
+<i data-lucide="server" style="display:inline; width:18px; height:18px; color:#8ec07c; vertical-align:middle;"></i> **ASSET: Constantine**
+
 If the cluster  has a heartbeat, it beats here. Constantine carries the heaviest operational load in the cluster — hosting the jkpdevlabs.com frontend while the rest of the nodes organize around it. The NVMe tier alone puts this unit in a different performance class than anything else in the rack, and the AMD silicon underneath has proven it has no interest in being retired twice.
-Chassis: HP EliteDesk 705 G2 SFF
-Primary Logic: AMD A6-8500 CPU
-Memory Core: 12GB DDR3 (High-Speed Synchronized)
-Storage Tier 0: 1.0TB Intel 670p NVMe — "The Muscle"
-Storage Tier 1: 120GB SATA SSD (Boot/OS)
-Operational Role: Flagship Node. Hosts the jkpdevlabs.com frontend.
 
-🟢 ASSET: Lobo 
+- **Chassis** - HP EliteDesk 705 G2 SFF
+- **Primary Logic** - AMD A6-8500 CPU
+- **Memory Core** - 12GB DDR3 (High-Speed Synchronized)
+- **Storage Tier 0** - 1.0TB Intel 670p NVMe — "The Muscle"
+- **Storage Tier 1** - 120GB SATA SSD (Boot/OS)
+- **Operational Role** - Flagship Node. Hosts the jkpdevlabs.com frontend.
+
+<i data-lucide="server" style="display:inline; width:18px; height:18px; color:#8ec07c; vertical-align:middle;"></i> **ASSET: Lobo** 
+
 Every flagship needs a shadow. Lobo is the quiet one — the node that doesn't announce itself until Constantine can't. Built for high-availability failover, Lobo sits in a constant state of readiness, mirroring critical data across a ZFS redundancy tier. When something goes wrong — and in infrastructure, something eventually goes wrong — Lobo is already there.
-Chassis: HP EliteDesk 705 G2 SFF
-Primary Logic: AMD A6-8500 CPU
-Memory Core: 12GB DDR3
-Storage Tier 1: 240GB SATA SSD (Boot/OS)
-Redundancy Tier: 2× 500GB HDD (ZFS Mirror)
-Operational Role: High-Availability Failover & Redundant Storage.
 
-🟢 ASSET: Swamp Thing
+- **Chassis** - HP EliteDesk 705 G2 SFF
+- **Primary Logic** - AMD A6-8500 CPU
+- **Memory Core** - 12GB DDR3
+- **Storage Tier 1** - 240GB SATA SSD (Boot/OS)
+- **Redundancy Tier** - 2× 500GB HDD (ZFS Mirror)
+- **Operational Role** - High-Availability Failover & Redundant Storage.
+
+<i data-lucide="server" style="display:inline; width:18px; height:18px; color:#8ec07c; vertical-align:middle;"></i> **ASSET: Swamp Thing**
+
 Lean by design, not limitation. Swamp Thing was purpose-built for one thing — staying stable when everything else is under pressure. It handles quorum support and light compute, optimized for airflow and cluster coherence rather than raw throughput. In a distributed system, the node that holds things together quietly is often the most important one in the room. 
-Chassis: HP EliteDesk 705 G2 SFF
-Primary Logic: AMD A6-8500 CPU
-Memory Core: 12GB DDR3
-Storage Tier 1: 120GB SATA SSD (Boot/OS)
-Operational Role: Lean Compute & Quorum Support. Optimized for maximum airflow and cluster stability.
 
-🛡️ ASSET: Deathstroke
+- **Chassis** - HP EliteDesk 705 G2 SFF
+- **Primary Logic** - AMD A6-8500 CPU
+- **Memory Core** - 12GB DDR3
+- **Storage Tier 1** - 120GB SATA SSD (Boot/OS)
+- **Operational Role** - Lean Compute & Quorum Support. Optimized for maximum airflow and cluster stability.
+
+<i data-lucide="shield" style="display:inline; width:18px; height:18px; color:#fabd2f; vertical-align:middle;"></i> **ASSET: Deathstroke**
+
 The Intel in a fleet of AMD. The guardian in a cluster of workers. Deathstroke doesn't host, doesn't serve, doesn't compute for anyone else — it protects. Running Proxmox Backup Server on the older but deeply reliable i3-4130 architecture, it sits at the edge of the cluster with one job: make sure nothing is ever truly lost. The ZFS mirror underneath holds the vault, and it doesn't give that up easily.
-Chassis: HP ProDesk 600 G1 SFF
-Primary Logic: Intel i3-4130 CPU
-Memory Core: 8GB DDR3 (The Remainder Pool)
-Storage Tier 1: 120GB SATA SSD (Boot/OS)
-Vault Tier: 2× 500GB HDD (ZFS Mirror)
-Operational Role: Dedicated Proxmox Backup Server (PBS).
 
-
+- **Chassis** - HP ProDesk 600 G1 SFF
+- **Primary Logic** - Intel i3-4130 CPU
+- **Memory Core** - 8GB DDR3 (The Remainder Pool)
+- **Storage Tier 1** - 120GB SATA SSD (Boot/OS)
+- **Vault Tier** - 2× 500GB HDD (ZFS Mirror)
+- **Operational Role** - Dedicated Proxmox Backup Server (PBS).
  
 The Nervous System: The MikroTik Rite of Passage
 The hardware was alive, but blind.
@@ -125,7 +143,6 @@ Stateful Inspection — Writing firewall rules from scratch, line by line, until
 The DNS Gap — Troubleshooting why the sisters couldn't resolve the internet, and forcing that RB5009 to step up as the authoritative DNS brain for the entire cluster.
 
 Bandwidth Awareness — Using the TRENDnet 10/100 switch as a deliberate physical bottleneck to understand how network latency propagates upward into high-availability heartbeats. You learn more from a constraint than you ever do from abundance, in my opinion anyway.
-
 
 The Cluster: Proxmox and the Power of Three
 Virtualization was the next layer — and the one that turned a collection of reclaimed desktops into something that behaves like infrastructure.
