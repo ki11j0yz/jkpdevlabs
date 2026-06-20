@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-
 // Fetch all posts and sort by date
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -9,30 +8,29 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <BaseLayout title="Lab Chronicles // jkpdevlabs" showAvatar>
-    <main class="container mx-auto px-4 py-20">
+    <main class="max-w-5xl w-full mx-auto px-4 py-20">
         <h1
-            class="text-3xl font-bold text-[#bf5b45] border-b-2 border-[#bf5b45] inline-block mb-10"
+            class="text-3xl font-bold text-[#fabd2f] border-b-2 border-[#fabd2f] inline-block mb-10 font-mono-code"
         >
             THE_LAB_CHRONICLES
         </h1>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {
                 posts.map((post) => (
                     <a href={`/blog/${post.id}/`} class="group">
-                        <div class="bg-[#161b22] border border-[#30363d] p-6 rounded-lg hover:border-[#bf5b45] transition-all duration-300">
-                            <p class="text-xs text-[#8b949e] mb-2">
+                        <div class="bg-[#282828] border border-[#3c3836] p-6 rounded-lg hover:border-[#504945] transition-all duration-300">
+                            <p class="text-xs text-[#a89984] mb-2 font-mono-code">
                                 {post.data.pubDate.toLocaleDateString()}
                             </p>
-                            <h2 class="text-xl font-bold text-[#58a6ff] group-hover:underline">
+                            <h2 class="text-xl font-bold text-[#fbf1c7] group-hover:text-[#fabd2f] transition-colors">
                                 {post.data.title}
                             </h2>
-                            <p class="text-sm text-[#8b949e] mt-2 line-clamp-2">
+                            <p class="text-sm text-[#bdae93] mt-2 line-clamp-2">
                                 {post.data.description}
                             </p>
-                            <div class="mt-4 flex gap-2">
+                            <div class="mt-4 flex gap-2 flex-wrap">
                                 {post.data.tags.map((tag) => (
-                                    <span class="text-[10px] bg-[#30363d] px-2 py-1 rounded-full uppercase">
+                                    <span class="text-[10px] bg-[#3c3836] text-[#b8bb26] px-2 py-1 rounded-full uppercase font-mono-code border border-[#504945]">
                                         {tag}
                                     </span>
                                 ))}
