@@ -7,7 +7,7 @@ tags: ["origin", "philosophy", "security"]
 ---
 
 # Your edited text from Google Docs starts here...
-The Spark (in a nut[shell]): A Cinematic Awakening Becomes Homelab
+<h1>The Spark (in a nut[shell]): A Cinematic Awakening Becomes Homelab</h1>
 
 My obsession didn't start with a "Hello World" program. It started with a movie.
 Not a tutorial. Not a bootcamp. Not a mentor pulling me aside and pointing me toward a career. A movie about information warfare.
