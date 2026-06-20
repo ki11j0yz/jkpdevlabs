@@ -142,21 +142,19 @@ const brand = "{jkpdevlabs}";
             const navAvatar = document.getElementById("nav-avatar");
             const heroAvatar = document.getElementById("hero-avatar");
 
-            // Listen for scroll events
-            window.addEventListener("scroll", () => {
-                // Trigger transition once the user scrolls down past 80px
-                if (window.scrollY > 80) {
-                    // Shrink and fade out the large Hero avatar
-                    heroAvatar?.classList.add("scale-0", "opacity-0");
-                    // Bounce and fade in the small Navbar avatar
-                    navAvatar?.classList.remove("scale-0", "opacity-0");
-                } else {
-                    // Bring back the large Hero avatar
-                    heroAvatar?.classList.remove("scale-0", "opacity-0");
-                    // Shrink and hide the Navbar avatar
-                    navAvatar?.classList.add("scale-0", "opacity-0");
-                }
-            });
+            // Only run the scroll-driven swap on pages that HAVE a hero avatar
+            // (the homepage). On blog/other pages the nav avatar stays put.
+            if (heroAvatar) {
+                window.addEventListener("scroll", () => {
+                    if (window.scrollY > 80) {
+                        heroAvatar.classList.add("scale-0", "opacity-0");
+                        navAvatar?.classList.remove("scale-0", "opacity-0");
+                    } else {
+                        heroAvatar.classList.remove("scale-0", "opacity-0");
+                        navAvatar?.classList.add("scale-0", "opacity-0");
+                    }
+                });
+            }
         </script>
     </body>
 </html>
