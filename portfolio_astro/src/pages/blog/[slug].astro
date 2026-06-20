@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection, render } from "astro:content";
-
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
     return posts.map((post: any) => ({
@@ -9,7 +8,6 @@ export async function getStaticPaths() {
         props: { post },
     }));
 }
-
 const { post } = Astro.props as { post: any };
 const { Content } = await render(post);
 ---
@@ -22,35 +20,48 @@ const { Content } = await render(post);
                     <img
                         src={post.data.heroImage}
                         alt={post.data.title}
-                        class="w-full rounded-lg mb-8 object-cover max-h-64"
+                        class="w-full rounded-lg mb-8 object-cover max-h-64 border border-[#3c3836]"
                     />
                 )
             }
-            <p class="text-xs text-[#8b949e] mb-2">
+            <p class="text-xs text-[#a89984] mb-2 font-mono-code">
                 {post.data.pubDate.toLocaleDateString()}
             </p>
-            <h1 class="text-3xl font-bold text-[#58a6ff] mb-4">
+            <h1
+                class="text-3xl md:text-4xl font-extrabold text-[#fbf1c7] mb-4 tracking-tight"
+            >
                 {post.data.title}
             </h1>
-            <p class="text-sm text-[#8b949e]">{post.data.description}</p>
-            <div class="flex gap-2 mt-4">
+            <p class="text-sm text-[#bdae93]">{post.data.description}</p>
+            <div class="flex gap-2 mt-4 flex-wrap">
                 {
                     post.data.tags.map((tag: string) => (
-                        <span class="text-[10px] bg-[#30363d] px-2 py-1 rounded-full uppercase text-[#8b949e]">
+                        <span class="text-[10px] bg-[#3c3836] text-[#b8bb26] px-2 py-1 rounded-full uppercase font-mono-code border border-[#504945]">
                             {tag}
                         </span>
                     ))
                 }
             </div>
-            <div class="border-b border-[#30363d] mt-8"></div>
+            <div class="border-b border-[#3c3836] mt-8"></div>
         </div>
         <div
-            class="prose prose-invert max-w-none text-[#8b949e] leading-relaxed"
+            class="prose prose-invert max-w-none leading-relaxed
+                   prose-headings:text-[#fbf1c7] prose-headings:font-bold
+                   prose-p:text-[#bdae93]
+                   prose-strong:text-[#fbf1c7]
+                   prose-a:text-[#fabd2f] hover:prose-a:text-[#fe8019]
+                   prose-li:text-[#bdae93]
+                   prose-code:text-[#8ec07c] prose-code:bg-[#282828] prose-code:px-1 prose-code:rounded
+                   prose-blockquote:border-l-[#fabd2f] prose-blockquote:text-[#a89984]
+                   prose-hr:border-[#3c3836]"
         >
             <Content />
         </div>
         <div class="mt-16">
-            <a href="/blog" class="text-xs text-[#58a6ff] hover:underline">
+            <a
+                href="/blog"
+                class="text-xs text-[#fabd2f] hover:text-[#fe8019] transition-colors font-mono-code"
+            >
                 ← Back to Lab Chronicles
             </a>
         </div>
