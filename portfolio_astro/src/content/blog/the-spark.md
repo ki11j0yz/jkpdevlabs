@@ -6,7 +6,7 @@ heroImage: "/images/blog/blog_photo1.png"
 tags: ["origin", "philosophy", "security"]
 ---
 
-# The Spark (in a nut[shell]): A Cinematic Awakening Becomes Homelab
+###### The Spark (in a nut[shell]): A Cinematic Awakening Becomes Homelab
 
 My obsession didn't start with a "Hello World" program. It started with a movie.
 Not a tutorial. Not a bootcamp. Not a mentor pulling me aside and pointing me toward a career. A movie about information warfare.
