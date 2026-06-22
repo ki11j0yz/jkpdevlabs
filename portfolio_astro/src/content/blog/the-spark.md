@@ -90,44 +90,44 @@ Here is the breakdown of the assets currently active in the field:
 
 If the cluster  has a heartbeat, it beats here. Constantine carries the heaviest operational load in the cluster — hosting the jkpdevlabs.com frontend while the rest of the nodes organize around it. The NVMe tier alone puts this unit in a different performance class than anything else in the rack, and the AMD silicon underneath has proven it has no interest in being retired twice.
 
-- **Chassis** - HP EliteDesk 705 G2 SFF
-- **Primary Logic** - AMD A6-8500 CPU
-- **Memory Core** - 12GB DDR3 (High-Speed Synchronized)
-- **Storage Tier 0** - 1.0TB Intel 670p NVMe — "The Muscle"
-- **Storage Tier 1** - 120GB SATA SSD (Boot/OS)
-- **Operational Role** - Flagship Node. Hosts the jkpdevlabs.com frontend.
+- **<span style="color:#83a598;">Chassis</span>** - HP EliteDesk 705 G2 SFF
+- **<span style="color:#83a598;">Primary Logic</span>** - AMD A6-8500 CPU
+- **<span style="color:#83a598;">Memory Core</span>** - 12GB DDR3 (High-Speed Synchronized)
+- **<span style="color:#83a598;">Storage Tier 0</span>** - 1.0TB Intel 670p NVMe — "The Muscle"
+- **<span style="color:#83a598;">Storage Tier 1</span>** - 120GB SATA SSD (Boot/OS)
+- **<span style="color:#83a598;">Operational Role</span>** - Flagship Node. Hosts the jkpdevlabs.com frontend.
 
 <i data-lucide="server" style="display:inline; width:18px; height:18px; color:#8ec07c; vertical-align:middle;"></i> **ASSET: Lobo** 
 
 Every flagship needs a shadow. Lobo is the quiet one — the node that doesn't announce itself until Constantine can't. Built for high-availability failover, Lobo sits in a constant state of readiness, mirroring critical data across a ZFS redundancy tier. When something goes wrong — and in infrastructure, something eventually goes wrong — Lobo is already there.
 
-- **Chassis** - HP EliteDesk 705 G2 SFF
-- **Primary Logic** - AMD A6-8500 CPU
-- **Memory Core** - 12GB DDR3
-- **Storage Tier 1** - 240GB SATA SSD (Boot/OS)
-- **Redundancy Tier** - 2× 500GB HDD (ZFS Mirror)
-- **Operational Role** - High-Availability Failover & Redundant Storage.
+- **<span style="color:#83a598;">Chassis</span>** - HP EliteDesk 705 G2 SFF
+- **<span style="color:#83a598;">Primary Logic</span>** - AMD A6-8500 CPU
+- **<span style="color:#83a598;">Memory Core</span>** - 12GB DDR3
+- **<span style="color:#83a598;">Storage Tier 1</span>** - 240GB SATA SSD (Boot/OS)
+- **<span style="color:#83a598;">Redundancy Tier</span>** - 2× 500GB HDD (ZFS Mirror)
+- **<span style="color:#83a598;">Operational Role</span>** - High-Availability Failover & Redundant Storage.
 
 <i data-lucide="server" style="display:inline; width:18px; height:18px; color:#8ec07c; vertical-align:middle;"></i> **ASSET: Swamp Thing**
 
 Lean by design, not limitation. Swamp Thing was purpose-built for one thing — staying stable when everything else is under pressure. It handles quorum support and light compute, optimized for airflow and cluster coherence rather than raw throughput. In a distributed system, the node that holds things together quietly is often the most important one in the room. 
 
-- **Chassis** - HP EliteDesk 705 G2 SFF
-- **Primary Logic** - AMD A6-8500 CPU
-- **Memory Core** - 12GB DDR3
-- **Storage Tier 1** - 120GB SATA SSD (Boot/OS)
-- **Operational Role** - Lean Compute & Quorum Support. Optimized for maximum airflow and cluster stability.
+- **<span style="color:#83a598;">Chassis</span>** - HP EliteDesk 705 G2 SFF
+- **<span style="color:#83a598;">Primary Logic</span>** - AMD A6-8500 CPU
+- **<span style="color:#83a598;">Memory Core</span>** - 12GB DDR3
+- **<span style="color:#83a598;">Storage Tier 1</span>** - 120GB SATA SSD (Boot/OS)
+- **<span style="color:#83a598;">Operational Role</span>** - Lean Compute & Quorum Support. Optimized for maximum airflow and cluster stability.
 
 <i data-lucide="shield" style="display:inline; width:18px; height:18px; color:#fabd2f; vertical-align:middle;"></i> **ASSET: Deathstroke**
 
 The Intel in a fleet of AMD. The guardian in a cluster of workers. Deathstroke doesn't host, doesn't serve, doesn't compute for anyone else — it protects. Running Proxmox Backup Server on the older but deeply reliable i3-4130 architecture, it sits at the edge of the cluster with one job: make sure nothing is ever truly lost. The ZFS mirror underneath holds the vault, and it doesn't give that up easily.
 
-- **Chassis** - HP ProDesk 600 G1 SFF
-- **Primary Logic** - Intel i3-4130 CPU
-- **Memory Core** - 8GB DDR3 (The Remainder Pool)
-- **Storage Tier 1** - 120GB SATA SSD (Boot/OS)
-- **Vault Tier** - 2× 500GB HDD (ZFS Mirror)
-- **Operational Role** - Dedicated Proxmox Backup Server (PBS).
+- **<span style="color:#83a598;">Chassis</span>** - HP ProDesk 600 G1 SFF
+- **<span style="color:#83a598;">Primary Logic</span>** - Intel i3-4130 CPU
+- **<span style="color:#83a598;">Memory Core</span>** - 8GB DDR3 (The Remainder Pool)
+- **<span style="color:#83a598;">Storage Tier 1</span>** - 120GB SATA SSD (Boot/OS)
+- **<span style="color:#83a598;">Vault Tier</span>***- 2× 500GB HDD (ZFS Mirror)
+- **<span style="color:#83a598;">Operational Role</span>**** - Dedicated Proxmox Backup Server (PBS).
  
 The Nervous System: The MikroTik Rite of Passage
 The hardware was alive, but blind.
